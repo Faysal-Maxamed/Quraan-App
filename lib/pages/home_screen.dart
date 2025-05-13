@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quraan_app/constants/constants.dart';
+import 'package:quraan_app/pages/quraan/quraan_homepage.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -57,6 +58,7 @@ class HomeScreen extends StatelessWidget {
                       CardsWidgets(
                         imgurl: "images/quran.jpeg",
                         title: "Quraanka",
+                        ontab: QuranHome(),
                       ),
                       CardsWidgets(
                         imgurl: "images/kacba.jpeg",
@@ -187,29 +189,35 @@ class HomeScreen extends StatelessWidget {
 }
 
 class CardsWidgets extends StatelessWidget {
-  const CardsWidgets({super.key, required this.imgurl, required this.title});
+  const CardsWidgets(
+      {super.key, required this.imgurl, required this.title, this.ontab});
   final imgurl;
   final title;
+  final ontab;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          height: 90,
-          width: 90,
-          decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.15),
-                blurRadius: 7,
-                offset: Offset(3, 7),
-                spreadRadius: 5,
-              )
-            ],
-            borderRadius: BorderRadius.circular(80),
-            image: DecorationImage(
-              image: AssetImage(imgurl),
+        GestureDetector(
+          onTap: () =>
+              Navigator.push(context, MaterialPageRoute(builder: (_) => ontab)),
+          child: Container(
+            height: 90,
+            width: 90,
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.15),
+                  blurRadius: 7,
+                  offset: Offset(3, 7),
+                  spreadRadius: 5,
+                )
+              ],
+              borderRadius: BorderRadius.circular(80),
+              image: DecorationImage(
+                image: AssetImage(imgurl),
+              ),
             ),
           ),
         ),
