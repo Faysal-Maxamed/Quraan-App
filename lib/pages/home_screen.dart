@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quraan_app/constants/constants.dart';
+import 'package:quraan_app/pages/names%20of%20allah/names_of_allah_page.dart';
 import 'package:quraan_app/pages/quraan/quraan_homepage.dart';
+import 'package:quraan_app/pages/tasbiix/home_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -67,6 +69,7 @@ class HomeScreen extends StatelessWidget {
                       CardsWidgets(
                         imgurl: "images/tasbiix.jpeg",
                         title: "Tasbiix",
+                        ontab: SecondScreen(),
                       ),
                     ],
                   ),
@@ -87,6 +90,7 @@ class HomeScreen extends StatelessWidget {
                       CardsWidgets(
                         imgurl: "images/99names.jpeg",
                         title: "99 Magacyo Alah",
+                        ontab: NamesOfAllahPage(),
                       ),
                     ],
                   ),
